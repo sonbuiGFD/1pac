@@ -8,6 +8,9 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "env-cmd": "^10.1.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-react-hooks": "^3.0.0",
     "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
     "react": "^16.13.0",
@@ -16,20 +19,25 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "react-toastify": "^5.5.0",
+    "reactstrap": "^8.4.1",
+    "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "eslint": "^6.7.2",
-    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "build": "react-scripts build && cp build/index.html build/404.html",
+    "dev": "env-cmd -f .env.development react-scripts start",
+    "build": "env-cmd -f .env.production react-scripts build && cp build/index.html build/404.html",
+    "build-netlify": "rm -rf .netlify/build && mv build .netlify/build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "eslint ./src/*.js ./src/**/*.js ./src/**/**/*.js ./src/**/**/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"

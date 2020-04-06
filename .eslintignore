@@ -4,3 +4,4 @@ dist/*
 dll/*
 build/*
 token.json
+src/serviceWorker.js

@@ -1,0 +1,63 @@
+{
+  "extends": [
+    "react-app",
+    "airbnb"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src"
+        ]
+      }
+    }
+  },
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/prop-types": [
+      0
+    ],
+    "jsx-a11y/label-has-for": [
+      0
+    ],
+    "arrow-parens": "off",
+    "object-curly-newline": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/anchor-is-valid": 0,
+    "react/jsx-one-expression-per-line": "off",
+    "no-nested-ternary": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "implicit-arrow-linebreak": "off",
+    "max-len": "off",
+    "no-shadow": "off",
+    "react/prefer-stateless-function": "off",
+    "operator-linebreak": "off",
+    "react/jsx-curly-newline": "off",
+    "no-underscore-dangle": "off",
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/media-has-caption": "off",
+    "import/prefer-default-export": "off",
+    "func-names": "off",
+    "linebreak-style": "off",
+    "react/jsx-indent": "off",
+    "no-console": "off",
+    "no-useless-escape": "off",
+    "no-param-reassign": "off"
+  }
+}

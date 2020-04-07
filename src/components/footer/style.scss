@@ -1,0 +1,10 @@
+@import 'styles/var.scss';
+
+.footer {
+	&__main {
+		background-color: $white;
+		border-top: 1px solid $border;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}

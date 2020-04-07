@@ -1,0 +1,96 @@
+@import 'styles/var.scss';
+
+.header {
+	background-color: $white;
+	border-bottom: 1px solid $border;
+
+	&__inner {
+		height: em(80px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	&__logo {
+		width: em(210px);
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: percentage(1);
+		display: flex;
+		align-items: center;
+	}
+
+	&__action {
+		width: auto;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: percentage(1);
+		display: flex;
+		align-items: center;
+
+		.account {
+			position: relative;
+			border: none;
+			background: none;
+			padding: 0;
+			margin: 0;
+			color: $text_color;
+			margin-right: 10px;
+		}
+	}
+
+	&__menu {
+		.menu {
+			text-align: center;
+			margin: 0;
+			font-size: em(16px);
+			line-height: em(24px, 16px);
+			font-weight: 400;
+
+			.item {
+				display: inline-block;
+
+				&__link {
+					padding: 3px em(10px, 16px);
+					display: inline-block;
+					color: $text_color;
+
+					&--active,
+					&:hover {
+						.item {
+							&__label {
+								border-bottom-color: $text_color;
+							}
+						}
+					}
+				}
+
+				&__text {
+					border-bottom: 1px solid transparent;
+				}
+			}
+		}
+	}
+
+	@include max-md() {
+		border-bottom: none;
+		position: relative;
+
+		.container {
+			max-width: percentage(1);
+			padding: 0;
+		}
+
+		&::after {
+			content: '';
+			width: percentage(1);
+			position: absolute;
+			top: em(75px);
+			height: 1px;
+			background-color: $border;
+		}
+	}
+}

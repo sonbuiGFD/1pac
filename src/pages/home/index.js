@@ -1,7 +1,10 @@
 import React from 'react';
+import Header from 'components/header';
 
-const Dashboard = () => {
-  return <div>this is home page</div>;
-};
+const Dashboard = () => (
+  <div className="onepac">
+    <Header />
+  </div>
+);
 
 export default Dashboard;

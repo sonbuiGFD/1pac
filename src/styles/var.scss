@@ -2,8 +2,8 @@
 $fullWidth: 100%;
 
 // font
-$font: 'Quicksand';
-$title: 'Quicksand';
+$font: 'Roboto';
+$title: 'Roboto';
 
 // base color
 $nocolor: transparent;
@@ -11,14 +11,16 @@ $white: #ffffff;
 $black: #000000;
 
 // web color
-$main_color: #3dd2fa;
-$second_color: #404146;
-$text_color: #696969;
-$title_color: #333333;
+$main_color: #ee0e51;
+$second_color: #3dd2fa;
+$text_color: $black;
+$title_color: $black;
 $web_bg: $white;
 $card_color: #1a1d24;
 $text-black: $title_color;
 $text-white: $white;
+
+$border: #e8e9eb;
 
 /* FONT SIZES
 -------------------------------------------------- */

@@ -1,72 +1,20 @@
-// @font-face {
-// 	font-family: $font;
-// 	src: url('../../assets/fonts/Roboto-Light.ttf') format('truetype');
-// 	font-weight: normal;
-// 	font-style: normal;
-// }
-
-// @font-face {
-// 	font-family: $font;
-// 	src: url('../../assets/fonts/Roboto-Medium.ttf') format('truetype');
-// 	font-weight: 600;
-// 	font-style: normal;
-// }
-
-// @font-face {
-// 	font-family: $font;
-// 	src: url('../../assets/fonts/Roboto-Thin.ttf') format('truetype');
-// 	font-weight: 300;
-// 	font-style: normal;
-// }
-
 @font-face {
 	font-family: $font;
-	font-weight: 300;
+	src: url('../../assets/fonts/Roboto-Light.ttf') format('truetype');
+	font-weight: normal;
 	font-style: normal;
-	font-display: swap;
-	src: url('https://fonts.shopifycdn.com/quicksand/quicksand_n3.aca7966d6f657db1e1860622aba1fbd70add25cf.woff2?h1=dGhlbHVsdXB1cC5jb20&hmac=bf63820a79391b68918f89d3ff0c299ab52536224bb12cac5ae849c698877f62')
-			format('woff2'),
-		url('https://fonts.shopifycdn.com/quicksand/quicksand_n3.e7df9fd7fc3b24dcc474debbac6b1af89b65bf08.woff?h1=dGhlbHVsdXB1cC5jb20&hmac=75c18d1e34dd86bc9630ab4a3e0c030457afc1d449625cd162621e85054c8ff7')
-			format('woff');
 }
 
 @font-face {
 	font-family: $font;
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-	src: url('https://fonts.shopifycdn.com/quicksand/quicksand_n4.d095c6a3084955552d078cb5ddbfcacb66ded7c7.woff2?h1=dGhlbHVsdXB1cC5jb20&hmac=d22fffbc7a6a64827e627408647b26b8de47b0d9113f334fa89ec7e35f441374')
-			format('woff2'),
-		url('https://fonts.shopifycdn.com/quicksand/quicksand_n4.fdcb207dc7752a043253c4181978b51d0ce29865.woff?h1=dGhlbHVsdXB1cC5jb20&hmac=8f7f4b8a1e5b9660fd68ce9d04e4ad918c70f4df9a76bf8ade071f7082550c7b')
-			format('woff');
-}
-
-@font-face {
-	font-family: $font;
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-	src: url('https://fonts.shopifycdn.com/quicksand/quicksand_n5.abe6ceb49fad3d5860023778027e009981009ec5.woff2?h1=dGhlbHVsdXB1cC5jb20&hmac=222bf248b7348b90720412bb044f617929b0d60bf13e93fdc48fbc1ccb672156')
-			format('woff2'),
-		url('https://fonts.shopifycdn.com/quicksand/quicksand_n5.4d639807b4c4942f5ab2860d7424ecc88ffa7883.woff?h1=dGhlbHVsdXB1cC5jb20&hmac=7ebc3e615c6a760eb45b243529c4551812b9b76e683d8f430af6bc13a9076c0d')
-			format('woff');
-}
-
-@font-face {
-	font-family: $font;
+	src: url('../../assets/fonts/Roboto-Medium.ttf') format('truetype');
 	font-weight: 600;
 	font-style: normal;
-	font-display: swap;
-	src: url('https://cdn.shopify.com/s/files/1/0328/5680/1325/files/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58a-xDwxUD2GFw.woff')
-		format('woff');
 }
+
 @font-face {
 	font-family: $font;
-	font-weight: 700;
+	src: url('../../assets/fonts/Roboto-Thin.ttf') format('truetype');
+	font-weight: 300;
 	font-style: normal;
-	font-display: swap;
-	src: url('https://fonts.shopifycdn.com/quicksand/quicksand_n7.814ad74da12e242768feb9a53e013a1b4a46d7b3.woff2?h1=dGhlbHVsdXB1cC5jb20&hmac=eb5b41e0581fc57c29656d6d98189e68db5b5c26998311d8c2623ae915b3be4a')
-			format('woff2'),
-		url('https://fonts.shopifycdn.com/quicksand/quicksand_n7.fe8d36c3dbce1c07d8230831c08195630ffab04d.woff?h1=dGhlbHVsdXB1cC5jb20&hmac=a26d6e1a0e187d79128de0a6d0426bc0331252714c002913ab24550a69388dde')
-			format('woff');
 }

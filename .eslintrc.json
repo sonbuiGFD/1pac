@@ -58,6 +58,7 @@
     "react/jsx-indent": "off",
     "no-console": "off",
     "no-useless-escape": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "react/jsx-wrap-multilines": "off"
   }
 }

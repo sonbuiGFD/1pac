@@ -3,7 +3,3 @@
 // const common = {
 //   logo,
 // };
-
-const Svg = {};
-
-export { Svg };

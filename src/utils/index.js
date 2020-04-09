@@ -92,3 +92,21 @@ export const slugify = (str) => {
 
   return str;
 };
+
+export const trimHtml = (str) => {
+  return str.replace(/(<([^>]+)>)/gi, '');
+};
+
+export const truncate = (str, maxLength = 50) => {
+  const dots = str.length > maxLength ? '...' : '';
+  return str.substring(0, maxLength) + dots;
+};
+
+export const formatDate = (d) => {
+  if (!d) {
+    return '';
+  }
+
+  const date = new Date(d);
+  return `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`;
+};

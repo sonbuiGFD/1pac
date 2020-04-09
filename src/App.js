@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from 'pages/404';
 
 const Home = lazy(() => import('pages/home'));
+const Search = lazy(() => import('pages/search'));
 const Blocked = lazy(() => import('pages/blocked'));
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
       <div className="app__main">
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/search" component={Search} />
           <Route exact path="/blocked" component={Blocked} />
 
           {/* Others */}

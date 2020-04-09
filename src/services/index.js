@@ -4,13 +4,9 @@ const API = {
   TOP_HEAD_LINES: '/v2/top-headlines',
 };
 
-export const claimCommonPools = (
-  data = {
-    caseId: 'string',
-  },
-) =>
+export const getTopHeadLines = (params) =>
   request({
     url: API.TOP_HEAD_LINES,
-    method: 'POST',
-    data,
+    method: 'GET',
+    params,
   });

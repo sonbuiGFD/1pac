@@ -19,8 +19,8 @@ export const Header = () => (
               </Link>
             </li>
             <li className="item">
-              <Link className="item__link" to="/category">
-                <span className="item__label">Category</span>
+              <Link className="item__link" to="/search">
+                <span className="item__label">Search</span>
               </Link>
             </li>
           </ul>

@@ -2,6 +2,9 @@ import axios from 'axios';
 import { hostConfigs } from 'constants/index';
 import { getData } from 'utils';
 
+delete axios.defaults.headers.common['Content-Type'];
+delete axios.defaults.headers.common['content-type'];
+
 export const request = async ({
   host = '',
   url = '',
@@ -11,29 +14,35 @@ export const request = async ({
   headers = {},
   _token,
 }) => {
-  const token = _token || (await getData('token')) || hostConfigs.development.defautToken;
+  const token = _token || hostConfigs.development.defautToken || (await getData('token'));
   const hostEnv = process.env.REACT_APP_API || hostConfigs.development.HostAPI;
   const GRANTTYPE = process.env.REACT_APP_GRANTTYPE || hostConfigs.development.grantType;
 
   try {
-    const res = await axios({
+    return await axios({
       url: `${host || hostEnv}${url}`,
       method,
       data,
       params,
+      transformRequest: [
+        function (data, headers) {
+          delete headers.common.Accept;
+          return data;
+        },
+      ],
       headers: {
         Accept: '*/*',
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json; charset=utf-8',
+        // 'Access-Control-Allow-Origin': '*/*',
+        // 'Content-Type': 'application/json',
         // 'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
-        // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, FunctionName',
+        // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, pragma',
         // 'Cache-Control': 'no-cache, no-store',
-        // Pragma: 'no-cache',
+        // pragma: 'no-cache',
+        // 'Content-Type': null,
         Authorization: `${GRANTTYPE} ${token}`,
         ...headers,
       },
     });
-    return res;
   } catch (error) {
     console.log('TCL: error', error);
     throw error;

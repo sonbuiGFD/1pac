@@ -14,7 +14,7 @@ export const request = async ({
   headers = {},
   _token,
 }) => {
-  const token = _token || hostConfigs.development.defautToken || (await getData('token'));
+  const token = _token || (await getData('token')) || hostConfigs.development.defautToken;
   const hostEnv = process.env.REACT_APP_API || hostConfigs.development.HostAPI;
   const GRANTTYPE = process.env.REACT_APP_GRANTTYPE || hostConfigs.development.grantType;
 

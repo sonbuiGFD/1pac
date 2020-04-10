@@ -5,6 +5,7 @@ import NotFound from 'pages/404';
 
 const Home = lazy(() => import('pages/home'));
 const Search = lazy(() => import('pages/search'));
+const Account = lazy(() => import('pages/account'));
 const Blocked = lazy(() => import('pages/blocked'));
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/search" component={Search} />
+          <Route exact path="/account" component={Account} />
           <Route exact path="/blocked" component={Blocked} />
 
           {/* Others */}

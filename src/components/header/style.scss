@@ -1,22 +1,24 @@
 @import 'styles/var.scss';
 
 .header {
-	background-color: $white;
-	border-bottom: 1px solid $border;
+	&__main {
+		background-color: $white;
+		border-bottom: 1px solid $border;
+	}
 
 	&__inner {
 		height: em(80px);
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		// display: flex;
+		// justify-content: center;
+		// align-items: center;
 		position: relative;
 	}
 
 	&__logo {
 		width: em(210px);
-		position: absolute;
-		top: 0;
-		left: 0;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
 		height: percentage(1);
 		display: flex;
 		align-items: center;
@@ -24,9 +26,9 @@
 
 	&__action {
 		width: auto;
-		position: absolute;
-		top: 0;
-		right: 0;
+		// position: absolute;
+		// top: 0;
+		// right: 0;
 		height: percentage(1);
 		display: flex;
 		align-items: center;
@@ -76,21 +78,23 @@
 	}
 
 	@include max-md() {
-		border-bottom: none;
-		position: relative;
+		&__main {
+			border-bottom: none;
+			position: relative;
 
-		.container {
-			max-width: percentage(1);
-			padding: 0;
-		}
+			.container {
+				max-width: percentage(1);
+				padding: 0;
+			}
 
-		&::after {
-			content: '';
-			width: percentage(1);
-			position: absolute;
-			top: em(75px);
-			height: 1px;
-			background-color: $border;
+			&::after {
+				content: '';
+				width: percentage(1);
+				position: absolute;
+				top: em(75px);
+				height: 1px;
+				background-color: $border;
+			}
 		}
 	}
 }

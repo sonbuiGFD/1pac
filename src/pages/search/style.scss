@@ -1,6 +1,31 @@
-.button_cta {
-	width: 100%;
-	max-width: 300px;
-	margin-left: auto;
-	margin-right: auto;
+@import 'styles/var.scss';
+
+.search_banner {
+	margin-bottom: 30px;
+
+	&__content {
+		text-align: center;
+	}
+
+	&__item {
+		text-align: center;
+		background: $second_color;
+		border: none;
+		outline: none;
+		color: $white;
+		height: 40px;
+		display: inline-block;
+		text-transform: uppercase;
+		padding: 10px 20px;
+		margin: 8px 10px;
+		border-radius: 8px;
+
+		&.active,
+		&:hover,
+		&:active,
+		&:focus {
+			background: $main_color;
+			color: $white;
+		}
+	}
 }

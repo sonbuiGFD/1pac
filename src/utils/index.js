@@ -98,6 +98,9 @@ export const trimHtml = (str) => {
 };
 
 export const truncate = (str, maxLength = 50) => {
+  if (!str) {
+    return '';
+  }
   const dots = str.length > maxLength ? '...' : '';
   return str.substring(0, maxLength) + dots;
 };

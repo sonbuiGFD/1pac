@@ -1,59 +1,61 @@
-import { getTopHeadLines } from 'services';
+import { getAll } from 'services';
 import { actionCreator, actionTryCatchCreator } from 'utils';
 
-export const HOME_ACTIONS = {
-  UPDATE_SELECTED_NEWS: 'UPDATE_SELECTED_NEWS_HOME',
-  UPDATE_SHOW_CTA: 'UPDATE_SHOW_CTA_HOME',
-  UPDATE_CUR_PAGE: 'UPDATE_CUR_PAGE_HOME',
+export const SEARCH_ACTIONS = {
+  UPDATE_SELECTED_NEWS: 'UPDATE_SELECTED_NEWS_SEARCH',
+  UPDATE_SHOW_CTA: 'UPDATE_SHOW_CTA_SEARCH',
+  UPDATE_CUR_PAGE: 'UPDATE_CUR_PAGE_SEARCH',
 };
 
 export const updateSelectedNews = (payload) => (dispatch) => {
   dispatch({
-    type: HOME_ACTIONS.UPDATE_SELECTED_NEWS,
+    type: SEARCH_ACTIONS.UPDATE_SELECTED_NEWS,
     payload,
   });
 };
 
 export const updateShowCTA = (payload) => (dispatch) => {
   dispatch({
-    type: HOME_ACTIONS.UPDATE_SHOW_CTA,
+    type: SEARCH_ACTIONS.UPDATE_SHOW_CTA,
     payload,
   });
 };
 export const updateCurPage = (payload) => (dispatch) => {
   dispatch({
-    type: HOME_ACTIONS.UPDATE_CUR_PAGE,
+    type: SEARCH_ACTIONS.UPDATE_CUR_PAGE,
     payload,
   });
 };
 
-export const GET_HEADLINES_NEWS = actionCreator('GET_HEADLINES_NEWS');
-export const getHeadlines = (params) => async (dispatch) => {
+export const GET_NEWS = actionCreator('GET_NEWS');
+export const getNews = (params) => async (dispatch) => {
+  updateShowCTA(true)(dispatch);
+  updateCurPage(1)(dispatch);
   const onPending = () => {
     dispatch({
-      type: GET_HEADLINES_NEWS.PENDING,
+      type: GET_NEWS.PENDING,
     });
   };
   const onSuccess = (data) => {
     dispatch({
-      type: GET_HEADLINES_NEWS.SUCCESS,
+      type: GET_NEWS.SUCCESS,
       payload: data,
     });
   };
   const onError = (error) => {
     dispatch({
-      type: GET_HEADLINES_NEWS.ERROR,
+      type: GET_NEWS.ERROR,
       payload: error,
     });
   };
-  await actionTryCatchCreator({ service: getTopHeadLines(params), onPending, onSuccess, onError });
+  await actionTryCatchCreator({ service: getAll(params), onPending, onSuccess, onError });
 };
 
-export const LOADMORE_HEADLINES_NEWS = actionCreator('LOADMORE_HEADLINES_NEWS');
-export const loadmoreHeadlines = (params) => async (dispatch) => {
+export const LOADMORE_NEWS = actionCreator('LOADMORE_NEWS');
+export const loadmoreNews = (params) => async (dispatch) => {
   const onPending = () => {
     dispatch({
-      type: LOADMORE_HEADLINES_NEWS.PENDING,
+      type: LOADMORE_NEWS.PENDING,
     });
   };
   const onSuccess = (data) => {
@@ -62,15 +64,15 @@ export const loadmoreHeadlines = (params) => async (dispatch) => {
       updateShowCTA(false)(dispatch);
     }
     dispatch({
-      type: LOADMORE_HEADLINES_NEWS.SUCCESS,
+      type: LOADMORE_NEWS.SUCCESS,
       payload: data,
     });
   };
   const onError = (error) => {
     dispatch({
-      type: LOADMORE_HEADLINES_NEWS.ERROR,
+      type: LOADMORE_NEWS.ERROR,
       payload: error,
     });
   };
-  await actionTryCatchCreator({ service: getTopHeadLines(params), onPending, onSuccess, onError });
+  await actionTryCatchCreator({ service: getAll(params), onPending, onSuccess, onError });
 };

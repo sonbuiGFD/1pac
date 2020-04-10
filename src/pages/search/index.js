@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { isEmpty } from 'lodash';
 
@@ -9,39 +9,63 @@ import NewsDetailModal from 'components/newsDetailModal';
 
 import { truncate } from 'utils';
 
-import { getHeadlines, updateSelectedNews, loadmoreHeadlines } from './action';
+import { getNews, updateSelectedNews, loadmoreNews } from './action';
 
 import './style.scss';
 
-const Home = ({
-  getHeadlinesAction,
+const keywords = ['bitcoin', 'apple', 'earthquake', 'animal'];
+
+const Search = ({
+  getNewsAction,
   articles,
   isLoading,
   selectedNews,
   updateSelectedNewsAction,
   isShowCTA,
-  loadmoreHeadlinesAction,
+  loadmoreNewsAction,
   curPage,
 }) => {
+  const [keyword, setKeyword] = useState(keywords[0]);
+
   useEffect(() => {
-    getHeadlinesAction({ country: 'us' });
-  }, [getHeadlinesAction]);
+    getNewsAction({ q: keyword });
+  }, [getNewsAction, keyword]);
+
+  const handleSelect = ({ target }) => {
+    const value = target.getAttribute('data');
+    setKeyword(value || '');
+  };
 
   const loadMore = () => {
-    loadmoreHeadlinesAction({ country: 'us', page: curPage + 1 });
+    loadmoreNewsAction({ q: keyword, page: curPage + 1 });
   };
   return (
     <div className="onepac">
       <Header />
       <main className="body__main">
         <div className="container">
-          <h1 className="page_title">Top Headlines</h1>
+          <div className="search_banner">
+            <h1 className="page_title">Search</h1>
+            <div className="search_banner__content">
+              {keywords.map((key) => (
+                <button
+                  className={`search_banner__item ${keyword === key ? 'active' : ''}`}
+                  data={key}
+                  key={`search_key_word_${key}`}
+                  type="button"
+                  onClick={handleSelect}
+                >
+                  {key}
+                </button>
+              ))}
+            </div>
+          </div>
           <div className="row news__list">
             {articles.map((article) => (
               <div
                 onClick={() => updateSelectedNewsAction(article)}
                 className="col-12 col-md-6 col-lg-4 "
-                key={`home_news_item_${article.title}`}
+                key={`news_news_item_${article.title}`}
               >
                 <div className="news__item">
                   <div className="news__img">
@@ -71,18 +95,18 @@ const Home = ({
     </div>
   );
 };
-const mapStateToProps = ({ home }) => ({
-  articles: home.data.articles,
-  isLoading: home.ui.isLoading,
-  selectedNews: home.ui.selectedNews,
-  isShowCTA: home.ui.isShowCTA,
-  curPage: home.ui.curPage,
+const mapStateToProps = ({ search }) => ({
+  articles: search.data.articles,
+  isLoading: search.ui.isLoading,
+  selectedNews: search.ui.selectedNews,
+  isShowCTA: search.ui.isShowCTA,
+  curPage: search.ui.curPage,
 });
 
 const mapDispatchToProps = {
-  getHeadlinesAction: getHeadlines,
+  getNewsAction: getNews,
   updateSelectedNewsAction: updateSelectedNews,
-  loadmoreHeadlinesAction: loadmoreHeadlines,
+  loadmoreNewsAction: loadmoreNews,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
